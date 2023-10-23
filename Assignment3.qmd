@@ -9,7 +9,7 @@ message: FALSE
 ---
 
 ```{r}
-here::i_am("Assignment3.Rproj")
+here::i_am("GitHub.Rproj")
 library(here)
 library(dplyr)
 library(ggplot2)
@@ -119,31 +119,32 @@ dropout %>%
 ```
 
 ### Question 3
+
 ```{r}
-dropout %>%
-  group_by(Target) %>%
-  summarise(across(
-    c("Curricular units 1st sem (credited)", "Curricular units 1st sem (evaluations)", "Curricular units 1st sem (grade)"), 
-    mean, na.rm = TRUE
-  ))%>%
- knitr::kable()
+long_format <- dropout %>%
+  group_by(Target)%>%
+  summarise(across(starts_with("Curricular units"), mean) %>%
+  pivot_longer(cols = starts_with("Curricular units"),
+                names_to = "Units",
+                values_to = "Value"))%>%
+   knitr::kable()
+long_format
+
 ```
+
+
 ### Question 4
 ```{r}
-Long_format <- dropout %>%
-  select(starts_with("Curricular_units"))
-  summarise(across(c("Curricular units 1st sem (credited)", "Curricular units 1st sem (evaluations)", "Curricular units 1st sem (grade)"), mean, na.rm = TRUE)) %>%
-  pivot_longer(cols = starts_with("Curricular units"), 
-               names_to = "Curricular Unit",
-               values_to = "Target")%>%
   dropout %>%
-  summarise(across(c("Curricular units 1st sem (credited)", "Curricular units 1st sem (evaluations)", "Curricular units 1st sem (grade)"), mean, na.rm = TRUE)) %>%
+  summarise(across(starts_with("Curricular units"), mean, na.rm = TRUE)) %>%
   pivot_longer(cols = starts_with("Curricular units"), 
                names_to = "Curricular Unit",
                values_to = "Target")%>%
  knitr::kable()
 
 ```
+
+
 
 
 

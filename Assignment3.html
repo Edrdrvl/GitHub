@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="cell">
 <div class="cell-output cell-output-stderr">
-<pre><code>here() starts at /Users/edoardoruvolo/Desktop/Data Management/Assigment3/Assignment3</code></pre>
+<pre><code>here() starts at /Users/edoardoruvolo/Desktop/Data Management/GitHub</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
@@ -885,40 +885,199 @@ Attaching package: 'dplyr'</code></pre>
 <section id="question-3-1" class="level3">
 <h3 class="anchored" data-anchor-id="question-3-1">Question 3</h3>
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'Target'. You can override using the
+`.groups` argument.</code></pre>
+</div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 7%">
-<col style="width: 30%">
-<col style="width: 33%">
-<col style="width: 28%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Target</th>
-<th style="text-align: right;">Curricular units 1st sem (credited)</th>
-<th style="text-align: right;">Curricular units 1st sem (evaluations)</th>
-<th style="text-align: right;">Curricular units 1st sem (grade)</th>
+<th style="text-align: left;">Units</th>
+<th style="text-align: right;">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Dropout</td>
+<td style="text-align: left;">Curricular units 1st sem (credited)</td>
 <td style="text-align: right;">0.6094300</td>
-<td style="text-align: right;">7.751583</td>
-<td style="text-align: right;">7.256655</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dropout</td>
+<td style="text-align: left;">Curricular units 1st sem (enrolled)</td>
+<td style="text-align: right;">5.8212526</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dropout</td>
+<td style="text-align: left;">Curricular units 1st sem (evaluations)</td>
+<td style="text-align: right;">7.7515834</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dropout</td>
+<td style="text-align: left;">Curricular units 1st sem (approved)</td>
+<td style="text-align: right;">2.5517241</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dropout</td>
+<td style="text-align: left;">Curricular units 1st sem (grade)</td>
+<td style="text-align: right;">7.2566555</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dropout</td>
+<td style="text-align: left;">Curricular units 1st sem (without evaluations)</td>
+<td style="text-align: right;">0.1921182</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dropout</td>
+<td style="text-align: left;">Curricular units 2nd sem (credited)</td>
+<td style="text-align: right;">0.4496833</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dropout</td>
+<td style="text-align: left;">Curricular units 2nd sem (enrolled)</td>
+<td style="text-align: right;">5.7804363</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dropout</td>
+<td style="text-align: left;">Curricular units 2nd sem (evaluations)</td>
+<td style="text-align: right;">7.1738213</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dropout</td>
+<td style="text-align: left;">Curricular units 2nd sem (approved)</td>
+<td style="text-align: right;">1.9401830</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dropout</td>
+<td style="text-align: left;">Curricular units 2nd sem (grade)</td>
+<td style="text-align: right;">5.8993389</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dropout</td>
+<td style="text-align: left;">Curricular units 2nd sem (without evaluations)</td>
+<td style="text-align: right;">0.2378607</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Graduate</td>
+<td style="text-align: left;">Curricular units 1st sem (credited)</td>
+<td style="text-align: right;">0.8474423</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Graduate</td>
-<td style="text-align: right;">0.8474423</td>
-<td style="text-align: right;">8.276596</td>
-<td style="text-align: right;">12.643655</td>
+<td style="text-align: left;">Curricular units 1st sem (enrolled)</td>
+<td style="text-align: right;">6.6695337</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Graduate</td>
+<td style="text-align: left;">Curricular units 1st sem (evaluations)</td>
+<td style="text-align: right;">8.2765957</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Graduate</td>
+<td style="text-align: left;">Curricular units 1st sem (approved)</td>
+<td style="text-align: right;">6.2322318</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Graduate</td>
+<td style="text-align: left;">Curricular units 1st sem (grade)</td>
+<td style="text-align: right;">12.6436545</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Graduate</td>
+<td style="text-align: left;">Curricular units 1st sem (without evaluations)</td>
+<td style="text-align: right;">0.0882752</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Graduate</td>
+<td style="text-align: left;">Curricular units 2nd sem (credited)</td>
+<td style="text-align: right;">0.6668176</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Graduate</td>
+<td style="text-align: left;">Curricular units 2nd sem (enrolled)</td>
+<td style="text-align: right;">6.6283386</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Graduate</td>
+<td style="text-align: left;">Curricular units 2nd sem (evaluations)</td>
+<td style="text-align: right;">8.1421458</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Graduate</td>
+<td style="text-align: left;">Curricular units 2nd sem (approved)</td>
+<td style="text-align: right;">6.1770032</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Graduate</td>
+<td style="text-align: left;">Curricular units 2nd sem (grade)</td>
+<td style="text-align: right;">12.6972758</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Graduate</td>
+<td style="text-align: left;">Curricular units 2nd sem (without evaluations)</td>
+<td style="text-align: right;">0.0805794</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Enrolled</td>
+<td style="text-align: left;">Curricular units 1st sem (credited)</td>
 <td style="text-align: right;">0.5075567</td>
-<td style="text-align: right;">9.341310</td>
-<td style="text-align: right;">11.125257</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Enrolled</td>
+<td style="text-align: left;">Curricular units 1st sem (enrolled)</td>
+<td style="text-align: right;">5.9647355</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Enrolled</td>
+<td style="text-align: left;">Curricular units 1st sem (evaluations)</td>
+<td style="text-align: right;">9.3413098</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Enrolled</td>
+<td style="text-align: left;">Curricular units 1st sem (approved)</td>
+<td style="text-align: right;">4.3186398</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Enrolled</td>
+<td style="text-align: left;">Curricular units 1st sem (grade)</td>
+<td style="text-align: right;">11.1252573</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Enrolled</td>
+<td style="text-align: left;">Curricular units 1st sem (without evaluations)</td>
+<td style="text-align: right;">0.1775819</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Enrolled</td>
+<td style="text-align: left;">Curricular units 2nd sem (credited)</td>
+<td style="text-align: right;">0.3589421</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Enrolled</td>
+<td style="text-align: left;">Curricular units 2nd sem (enrolled)</td>
+<td style="text-align: right;">5.9382872</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Enrolled</td>
+<td style="text-align: left;">Curricular units 2nd sem (evaluations)</td>
+<td style="text-align: right;">9.4357683</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Enrolled</td>
+<td style="text-align: left;">Curricular units 2nd sem (approved)</td>
+<td style="text-align: right;">4.0579345</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Enrolled</td>
+<td style="text-align: left;">Curricular units 2nd sem (grade)</td>
+<td style="text-align: right;">11.1173643</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Enrolled</td>
+<td style="text-align: left;">Curricular units 2nd sem (without evaluations)</td>
+<td style="text-align: right;">0.1876574</td>
 </tr>
 </tbody>
 </table>
@@ -939,15 +1098,51 @@ Attaching package: 'dplyr'</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Curricular units 1st sem (credited)</td>
-<td style="text-align: right;">0.709991</td>
+<td style="text-align: right;">0.7099910</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">Curricular units 1st sem (enrolled)</td>
+<td style="text-align: right;">6.2705696</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">Curricular units 1st sem (evaluations)</td>
-<td style="text-align: right;">8.299051</td>
+<td style="text-align: right;">8.2990506</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Curricular units 1st sem (approved)</td>
+<td style="text-align: right;">4.7066004</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Curricular units 1st sem (grade)</td>
-<td style="text-align: right;">10.640822</td>
+<td style="text-align: right;">10.6408216</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Curricular units 1st sem (without evaluations)</td>
+<td style="text-align: right;">0.1376582</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Curricular units 2nd sem (credited)</td>
+<td style="text-align: right;">0.5418174</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Curricular units 2nd sem (enrolled)</td>
+<td style="text-align: right;">6.2321429</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Curricular units 2nd sem (evaluations)</td>
+<td style="text-align: right;">8.0632911</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Curricular units 2nd sem (approved)</td>
+<td style="text-align: right;">4.4358047</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Curricular units 2nd sem (grade)</td>
+<td style="text-align: right;">10.2302057</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Curricular units 2nd sem (without evaluations)</td>
+<td style="text-align: right;">0.1503165</td>
 </tr>
 </tbody>
 </table>
