@@ -1,0 +1,149 @@
+---
+title: "Dplyr and Tdyr lab"
+author: "Edoardo Ruvolo"
+format:
+  html: default
+  pdf: default
+echo: FALSE
+message: FALSE
+---
+
+```{r}
+here::i_am("Assignment3.Rproj")
+library(here)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+```
+Uploading dataset
+```{r}
+Spotify <- readRDS(here("top-spotify-hits-2000-2019.Rds"))
+```
+
+## Excersise 1
+### Question 1
+```{r}
+Num_artist <- Spotify %>% distinct(artist) %>%
+  summarise(N = n())
+Num_song <- Spotify %>% distinct(song, artist) %>%
+  summarise(N = n())
+Num_genre <- Spotify %>% distinct(genre) %>%
+  summarise(N = n())
+```
+The dataset contains `r Num_artist` artists, `r Num_song` songs and `r Num_genre` different genres.
+
+
+### Question 2
+```{r}
+Spotify %>%
+  group_by(year) %>%
+  distinct(song, .keep_all = TRUE) %>%
+  summarise(N=n()) %>%
+  knitr::kable()
+```
+### Question 3
+```{r}
+top_artist <- Spotify %>%
+  distinct(artist, song, .keep_all = TRUE) %>%
+  group_by(artist) %>%
+  summarise(N = n()) %>%
+  arrange(desc(N)) %>%
+  slice_head(n=1)
+```
+The artist with the most songs is `r top_artist[1, 1]`, with `r top_artist[1, 2]` songs.
+
+## Question 4
+```{r}
+Spotify %>%
+  group_by(genre) %>%
+  distinct(tempo, song, .keep_all = TRUE) %>%
+  summarise('Min'=min(tempo), 'Max'=max(tempo), 'Mean'=mean(tempo), 'Median'=median(tempo), 'N'=n()) %>%
+  arrange(desc(N)) %>%
+  knitr::kable()
+``` 
+
+### Question 5
+```{r}
+Median_Energy = Spotify %>%
+  group_by(year) %>%
+  summarise(
+    'Median Energy' = median(energy))
+
+Median_Danceability = Spotify %>%
+  group_by(year) %>%
+  summarise(
+    'Median Danceability' = median(danceability))
+
+ED_merged<- merge.data.frame(Median_Energy, Median_Danceability)
+ED_merged
+
+```
+
+
+```{r}
+ggplot(ED_merged, aes(x = year)) +
+  geom_line(aes(y = `Median Energy`, color = 'Median Energy'), size = 1) +
+  geom_line(aes(y = `Median Danceability`, color = 'Median Danceability'), size = 1)+
+labs(
+    x = "Year",
+    y = "Median Value",
+    color = "Variable",
+  ) +
+  ggtitle("Median Energy vs Median Danceability")+
+  theme_minimal()
+
+```
+# Exercise 2 
+
+Load dataset
+```{r}
+dropout <- readRDS("dropout.Rds")
+```
+
+### Question 1
+```{r}
+dropout %>%
+  group_by(Gender, `Marital status`) %>% 
+  summarise('Median Age' =median(`Age at enrollment`, .groups = "drop"))%>% 
+  ungroup() %>%
+knitr::kable()
+```
+
+### Question 2
+```{r}
+dropout %>%
+  group_by(Gender, `Marital status`) %>% 
+  summarise('Median Age' =median(`Age at enrollment`, .groups = "drop"))%>% 
+  pivot_wider(values_from = 'Median Age', names_from = Gender)%>% 
+  knitr::kable()
+```
+
+### Question 3
+```{r}
+dropout %>%
+  group_by(Target) %>%
+  summarise(across(
+    c("Curricular units 1st sem (credited)", "Curricular units 1st sem (evaluations)", "Curricular units 1st sem (grade)"), 
+    mean, na.rm = TRUE
+  ))%>%
+ knitr::kable()
+```
+### Question 4
+```{r}
+Long_format <- dropout %>%
+  select(starts_with("Curricular_units"))
+  summarise(across(c("Curricular units 1st sem (credited)", "Curricular units 1st sem (evaluations)", "Curricular units 1st sem (grade)"), mean, na.rm = TRUE)) %>%
+  pivot_longer(cols = starts_with("Curricular units"), 
+               names_to = "Curricular Unit",
+               values_to = "Target")%>%
+  dropout %>%
+  summarise(across(c("Curricular units 1st sem (credited)", "Curricular units 1st sem (evaluations)", "Curricular units 1st sem (grade)"), mean, na.rm = TRUE)) %>%
+  pivot_longer(cols = starts_with("Curricular units"), 
+               names_to = "Curricular Unit",
+               values_to = "Target")%>%
+ knitr::kable()
+
+```
+
+
+
